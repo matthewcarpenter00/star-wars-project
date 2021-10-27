@@ -9,6 +9,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { CharacterProfile } from "./views/characterprofile";
+import { Characters } from "./component/characters";
 
 //create your first component
 const Layout = () => {
@@ -25,12 +27,15 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
+						{/* created this route to use just one component for the details page, 
+						// used params Params are placeholders in the URL that begin
+						// with a colon, like the `:id` param defined in
+						// the route in this example. */}
+						<Route exact path="/:type/:profileid" component={CharacterProfile} />
+
+						{/* <Route exact path="/characterprofile/:characterid">
+							<CharacterProfile />
+						</Route> */}
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
